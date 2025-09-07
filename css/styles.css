@@ -1,0 +1,80 @@
+/* 
+  Chose Flexbox over floats since it’s a cleaner, more modern approach 
+  to responsive layouts. Flexbox simply makes more sense here. Hope that's ok!
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+.menu-item {
+  border: 1px solid black;
+  background-color: #e4e4e4;
+  padding: 50px 20px 20px 20px;
+  position: relative;
+  flex: 1 1 100%; 
+  min-width: 250px;
+}
+
+.section-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  padding: 5px 10px;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.menu-item:nth-child(1) .section-title {
+  background-color: #d68d8d; 
+}
+
+.menu-item:nth-child(2) .section-title {
+  background-color: #a63e3e;
+  color: white;
+}
+
+.menu-item:nth-child(3) .section-title {
+  background-color: #e6e29c;
+}
+
+/* ===== Tablet (768px–991px) ===== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .menu-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+  .menu-item:nth-child(3) {
+    flex: 1 1 100%; /* last one full width */
+  }
+}
+
+/* ===== Desktop (≥992px) ===== */
+@media (min-width: 992px) {
+  .menu-item {
+    flex: 1 1 calc(33.333% - 20px);
+  }
+}
